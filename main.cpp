@@ -4,8 +4,8 @@
 using namespace std;
 
 int main() {
-    int h, m, s, input;
-    bool format;
+    int h, m, s, input, format;
+    bool clockFormat;
 
     cout << "Testing Clock class with clock one" << endl;
     Clock one;
@@ -49,16 +49,29 @@ int main() {
         cout << "Create your own clock: " << endl;
         cout << "Enter 1 if you would like the format to be 24-hour, or enter 0 for 12-hour: ";
         cin >> format;
+        while(format != 0 && format != 1){
+            cout << "Invalid input. Please enter 1 or 0: ";
+            cin >> format;
+        }
         cout << "Enter the hour: ";
         cin >> h;
         cout << "Enter the minutes: ";
         cin >> m;
         cout << "Enter the seconds: ";
         cin >> s;
-        Clock five(h, m, s, format);
+        if(format == 1){
+            clockFormat = true;
+        } else{
+            clockFormat = false;
+        }
+        Clock five(h, m, s, clockFormat);
         five.show();
         cout<< "Enter 1 if you would like to make another clock, or enter 0 to exit: ";
         cin >> input;
+        while(input != 0 && input != 1){
+            cout << "Invalid input. Please enter 1 or 0: ";
+            cin >> input;
+        }
         cout << endl;
     }while(input == 1);
 
