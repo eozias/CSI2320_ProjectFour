@@ -20,6 +20,7 @@ Clock::Clock(int h, int m, int s) {
         minute = m;
         second = s;
     } else {
+        cout << "Invalid input. Setting time to 00:00:00" << endl;
         hour = 0;
         minute = 0;
         second = 0;
@@ -45,6 +46,7 @@ Clock::Clock(int h, int m, int s, bool format){
         minute = m;
         second = s;
     } else {
+        cout << "Invalid input. Setting time to 00:00:00" << endl;
         hour = 0;
         minute = 0;
         second = 0;
