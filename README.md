@@ -6,7 +6,12 @@
 
 **Sample Output:**
 
-<img width="844" alt="output" src="https://github.com/eozias/CSI2320_ProjectFour/assets/115651203/dfb6fde0-0aa4-46e2-a183-f475978dd2a4">
+<img width="696" alt="OutputOne" src="https://github.com/eozias/CSI2320_ProjectFour/assets/115651203/f3187b6a-58fd-4080-987f-a240e65e390f">
+
+<img width="749" alt="OutputTwo" src="https://github.com/eozias/CSI2320_ProjectFour/assets/115651203/3b2430f7-7598-4b71-b05d-d2ca1a965e2d">
+
+
+
 
 
 
