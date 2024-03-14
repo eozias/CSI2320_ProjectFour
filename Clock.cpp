@@ -26,6 +26,31 @@ Clock::Clock(int h, int m, int s) {
     }
 }
 
+Clock::Clock(int h, int m, int s, bool format){
+    is24HourFormat = format;
+    int input;
+    if (is24HourFormat == true && h >= 0 && h <= 23 && m >= 0 && m <= 59 && s >= 0 && s <= 59) {
+        hour = h;
+        minute = m;
+        second = s;
+    } else if(is24HourFormat == false && h >= 1 && h <= 12 && m >= 0 && m <= 59 && s >= 0 && s <= 59){
+        cout << "Enter 1 if you would like the time to be PM, or enter 0 for AM: ";
+        cin >> input;
+        if(input == 1){
+            isPM = true;
+        } else{
+            isPM = false;
+        }
+        hour = h;
+        minute = m;
+        second = s;
+    } else {
+        hour = 0;
+        minute = 0;
+        second = 0;
+    }
+}
+
 void Clock::toggleFormat() {
     if (is24HourFormat == true) {
         // Switch to 12-hour format
@@ -73,54 +98,13 @@ void Clock::tick() {
 
 void Clock::show() {
     if (is24HourFormat == true) {
-        std::cout << std::setw(2) << std::setfill('0') << hour << ":"
-                  << std::setw(2) << std::setfill('0') << minute << ":"
-                  << std::setw(2) << std::setfill('0') << second << std::endl;
+        cout << setw(2) << setfill('0') << hour << ":"
+                  << setw(2) << setfill('0') << minute << ":"
+                  << setw(2) << setfill('0') << second << endl;
     } else {
-        std::cout << std::setw(2) << std::setfill('0') << hour << ":"
-                  << std::setw(2) << std::setfill('0') << minute << ":"
-                  << std::setw(2) << std::setfill('0') << second
-                  << (isPM ? " PM" : " AM") << std::endl;
+        cout << setw(2) << setfill('0') << hour << ":"
+                  << setw(2) << setfill('0') << minute << ":"
+                  << setw(2) << setfill('0') << second
+                  << (isPM ? " PM" : " AM") << endl;
     }
-}
-
-int main() {
-    cout << "Testing Clock class with clock one" << endl;
-    Clock one;
-    one.show();
-    cout << "Using the tick function..." << endl;
-    one.tick();
-    one.show();
-    cout << "Using the toggleFormat function..." << endl;
-    one.toggleFormat();
-    one.show();
-    cout << endl;
-
-    cout << "Testing Clock class with clock two" << endl;
-    Clock two(23, 59, 59);
-    two.show();
-    cout << "Using the tick function..." << endl;
-    two.tick();
-    two.show();
-    cout << "Using the toggleFormat function..." << endl;
-    two.toggleFormat();
-    two.show();
-    cout << endl;
-
-    cout << "Testing Clock class with clock three" << endl;
-    Clock three(12, 0, 0);
-    three.show();
-    cout << "Using the toggleFormat function..." << endl;
-    three.toggleFormat();
-    three.show();
-    cout << endl;
-
-    cout << "Testing Clock class with clock four" << endl;
-    Clock four(15, 31, 45);
-    four.show();
-    cout << "Using the toggleFormat function..." << endl;
-    four.toggleFormat();
-    four.show();
-
-    return 0;
 }

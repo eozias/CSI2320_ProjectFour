@@ -16,6 +16,9 @@ public:
     // Constructor
     Clock(int, int, int);
 
+    // Constructor with input for format
+    Clock(int, int, int, bool);
+
     // Switches between 12-hour and 24-hour format based on the value of is24HourFormat
     void toggleFormat();
 
